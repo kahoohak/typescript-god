@@ -4,3 +4,5 @@ enum Status {
 }
 
 const success = Status.Success
+
+export {}

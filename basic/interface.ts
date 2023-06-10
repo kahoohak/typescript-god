@@ -36,3 +36,5 @@ const obj2: IPerson2 = {
   name: 'kahoohak',
   age: 19
 }
+
+export {}
