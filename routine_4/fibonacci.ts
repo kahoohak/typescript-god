@@ -19,16 +19,17 @@
 
 type Fib<
   N extends number,
-  Prev extends unknown[] = [unknown],
-  Cur extends unknown[] = [],
-  Idx extends unknown[] = []
-> = Idx["length"] extends N ? Cur["length"] : Fib<N, Cur, [...Prev, ...Cur], [...Idx, unknown]>;
+  Prev extends unknown[] = [1],
+  Cur extends unknown[] = [1],
+  Idx extends unknown[] = [unknown, unknown]
+> = N extends 1
+  ? 1
+  : N extends 2
+  ? 1
+  : Idx["length"] extends N
+  ? Cur["length"]
+  : Fib<N, Cur, [...Prev, ...Cur], [...Idx, unknown]>;
 
-// 0 [] [1] 1 
-// 1 [1] [1] 2
-// 2 [1] [1, 1] 3
-// 3 [1, 1] [1, 1, 1] 4
-
-type Res = Fib<2>;
+type Res = Fib<3>;
 
 export {};
